@@ -18,19 +18,19 @@ import { Role } from './role.entity';
 @Entity('user_roles')
 @Index('idx_user_roles_unique', ['userId', 'roleId'], { unique: true })
 export class UserRole extends BaseEntity {
-  @Column({ type: 'uuid', name: 'user_id' })
+  @Column({ type: 'char', length: 36, name: 'user_id' })
   userId: string;
 
-  @Column({ type: 'uuid', name: 'role_id' })
+  @Column({ type: 'char', length: 36, name: 'role_id' })
   roleId: string;
 
-  @Column({ type: 'timestamptz', nullable: true, name: 'effective_from' })
+  @Column({ type: 'datetime', precision: 6, nullable: true, name: 'effective_from' })
   effectiveFrom: Date | null; // null = immediately effective
 
-  @Column({ type: 'timestamptz', nullable: true, name: 'effective_to' })
+  @Column({ type: 'datetime', precision: 6, nullable: true, name: 'effective_to' })
   effectiveTo: Date | null; // null = no expiry (except for time-bound roles like Auditor)
 
-  @Column({ type: 'uuid', nullable: true, name: 'assigned_by' })
+  @Column({ type: 'char', length: 36, nullable: true, name: 'assigned_by' })
   assignedBy: string | null;
 
   // --- Relations ---

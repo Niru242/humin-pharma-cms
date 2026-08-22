@@ -18,10 +18,10 @@ import { Permission } from './permission.entity';
 @Entity('role_permissions')
 @Index('idx_role_permissions_unique', ['roleId', 'permissionId'], { unique: true })
 export class RolePermission extends BaseEntity {
-  @Column({ type: 'uuid', name: 'role_id' })
+  @Column({ type: 'char', length: 36, name: 'role_id' })
   roleId: string;
 
-  @Column({ type: 'uuid', name: 'permission_id' })
+  @Column({ type: 'char', length: 36, name: 'permission_id' })
   permissionId: string;
 
   // --- Relations ---

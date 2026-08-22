@@ -25,7 +25,7 @@ import { User } from './user.entity';
 @Entity('user_data_scopes')
 @Index('idx_user_data_scopes_user', ['userId'])
 export class UserDataScope extends BaseEntity {
-  @Column({ type: 'uuid', name: 'user_id' })
+  @Column({ type: 'char', length: 36, name: 'user_id' })
   userId: string;
 
   @Column({
@@ -42,7 +42,7 @@ export class UserDataScope extends BaseEntity {
    * - For 'plant': plant UUID
    * - For 'department': department UUID
    */
-  @Column({ type: 'uuid', nullable: true, name: 'scope_entity_id' })
+  @Column({ type: 'char', length: 36, nullable: true, name: 'scope_entity_id' })
   scopeEntityId: string | null;
 
   /**
@@ -52,7 +52,7 @@ export class UserDataScope extends BaseEntity {
   @Column({ type: 'varchar', length: 200, nullable: true, name: 'scope_entity_label' })
   scopeEntityLabel: string | null;
 
-  @Column({ type: 'uuid', nullable: true, name: 'assigned_by' })
+  @Column({ type: 'char', length: 36, nullable: true, name: 'assigned_by' })
   assignedBy: string | null;
 
   // --- Relations ---

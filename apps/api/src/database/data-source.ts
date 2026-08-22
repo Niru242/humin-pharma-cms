@@ -7,12 +7,13 @@ dotenv.config({ path: path.resolve(__dirname, '../../../../.env') });
 dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 export default new DataSource({
-  type: 'postgres',
+  type: 'mysql',
   host: process.env.DB_HOST || 'localhost',
-  port: parseInt(process.env.DB_PORT || '5432', 10),
-  username: process.env.DB_USERNAME || 'pharma_admin',
-  password: process.env.DB_PASSWORD || 'pharma_secret_2024',
+  port: parseInt(process.env.DB_PORT || '3306', 10),
+  username: process.env.DB_USERNAME || 'root',
+  password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'pharma_hrms',
+  charset: 'utf8mb4',
   entities: [path.resolve(__dirname, '../**/*.entity{.ts,.js}')],
   migrations: [path.resolve(__dirname, './migrations/*{.ts,.js}')],
   synchronize: false,

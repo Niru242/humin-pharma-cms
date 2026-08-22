@@ -1,23 +1,9 @@
 version: '3.8'
 
 services:
-  postgres:
-    image: postgres:16-alpine
-    container_name: pharma-hrms-db
-    restart: unless-stopped
-    ports:
-      - '5432:5432'
-    environment:
-      POSTGRES_USER: pharma_admin
-      POSTGRES_PASSWORD: pharma_secret_2024
-      POSTGRES_DB: pharma_hrms
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U pharma_admin -d pharma_hrms']
-      interval: 10s
-      timeout: 5s
-      retries: 5
+  # MySQL is provided by your LAMPP stack (localhost:3306)
+  # This docker-compose only runs supporting services
+  # Access MySQL via phpMyAdmin at http://localhost/phpmyadmin
 
   redis:
     image: redis:7-alpine
@@ -54,6 +40,5 @@ services:
       retries: 3
 
 volumes:
-  pgdata:
   redisdata:
   miniodata:

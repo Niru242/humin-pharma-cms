@@ -3,7 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ThrottlerModule } from '@nestjs/throttler';
 
-// Domain modules — added as they are built
+// Domain modules
 import { AuthModule } from './modules/auth/auth.module';
 import { AuditModule } from './modules/audit/audit.module';
 import { HealthModule } from './modules/health/health.module';
@@ -16,7 +16,7 @@ import { HealthModule } from './modules/health/health.module';
       envFilePath: ['.env', '../../.env'],
     }),
 
-    // Database
+    // Database — PostgreSQL (Section 1 tech stack)
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
       useFactory: (config: ConfigService) => ({
@@ -27,22 +27,23 @@ import { HealthModule } from './modules/health/health.module';
         password: config.get('DB_PASSWORD', 'pharma_secret_2024'),
         database: config.get('DB_NAME', 'pharma_hrms'),
         autoLoadEntities: true,
-        synchronize: false, // Never use in production — use migrations
+        synchronize: false, // Never — use migrations only
         logging: config.get('APP_ENV') === 'development' ? ['error', 'warn'] : ['error'],
       }),
     }),
 
-    // Rate limiting
+    // Rate limiting (global defaults)
+    // Per-route overrides via @Throttle() decorator
     ThrottlerModule.forRoot([
       {
         name: 'short',
         ttl: 1000,
-        limit: 10, // 10 requests per second
+        limit: 10,
       },
       {
         name: 'medium',
         ttl: 60000,
-        limit: 100, // 100 requests per minute
+        limit: 100,
       },
     ]),
 

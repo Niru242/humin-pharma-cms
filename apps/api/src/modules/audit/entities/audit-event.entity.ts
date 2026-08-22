@@ -27,11 +27,11 @@ export class AuditEvent {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @CreateDateColumn({ type: 'timestamptz', name: 'created_at' })
+  @CreateDateColumn({ type: 'datetime', precision: 6, name: 'created_at' })
   createdAt: Date;
 
   // --- Who ---
-  @Column({ type: 'uuid', nullable: true, name: 'actor_id' })
+  @Column({ type: 'char', length: 36, nullable: true, name: 'actor_id' })
   actorId: string | null; // null for system-generated events
 
   @Column({ type: 'varchar', length: 255, nullable: true, name: 'actor_email' })
@@ -50,24 +50,24 @@ export class AuditEvent {
   @Column({ type: 'varchar', length: 100, name: 'entity_type' })
   entityType: string; // 'User', 'Employee', 'LeaveRequest', etc.
 
-  @Column({ type: 'uuid', nullable: true, name: 'entity_id' })
+  @Column({ type: 'char', length: 36, nullable: true, name: 'entity_id' })
   entityId: string | null;
 
   // --- Change details ---
-  @Column({ type: 'jsonb', nullable: true, name: 'old_values' })
+  @Column({ type: 'json', nullable: true, name: 'old_values' })
   oldValues: Record<string, unknown> | null;
 
-  @Column({ type: 'jsonb', nullable: true, name: 'new_values' })
+  @Column({ type: 'json', nullable: true, name: 'new_values' })
   newValues: Record<string, unknown> | null;
 
-  @Column({ type: 'jsonb', nullable: true, name: 'changed_fields' })
+  @Column({ type: 'json', nullable: true, name: 'changed_fields' })
   changedFields: string[] | null; // List of field names that changed
 
   // --- Context ---
   @Column({ type: 'text', nullable: true })
   reason: string | null; // Mandatory for high-risk actions (Section 8)
 
-  @Column({ type: 'jsonb', nullable: true })
+  @Column({ type: 'json', nullable: true })
   metadata: Record<string, unknown> | null; // Extra context (e.g. workflow step, import batch ID)
 
   // --- Result ---

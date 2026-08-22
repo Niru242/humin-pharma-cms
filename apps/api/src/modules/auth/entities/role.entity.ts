@@ -26,7 +26,7 @@ export class Role extends BaseEntity {
   @Column({ type: 'text', nullable: true })
   description: string | null;
 
-  @Column({ type: 'boolean', default: false, name: 'requires_mfa' })
+  @Column({ type: 'tinyint', width: 1, default: 0, name: 'requires_mfa' })
   requiresMfa: boolean; // true for Super Admin
 
   @Column({ type: 'int', default: 0, name: 'hierarchy_level' })

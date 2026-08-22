@@ -40,7 +40,7 @@ export class User extends BaseEntity {
   employeeCode: string | null;
 
   // --- MFA ---
-  @Column({ type: 'boolean', default: false, name: 'mfa_enabled' })
+  @Column({ type: 'tinyint', width: 1, default: 0, name: 'mfa_enabled' })
   mfaEnabled: boolean;
 
   @Column({ type: 'varchar', length: 255, nullable: true, name: 'mfa_secret' })
@@ -50,10 +50,10 @@ export class User extends BaseEntity {
   @Column({ type: 'int', default: 0, name: 'failed_login_attempts' })
   failedLoginAttempts: number;
 
-  @Column({ type: 'timestamptz', nullable: true, name: 'locked_until' })
+  @Column({ type: 'datetime', precision: 6, nullable: true, name: 'locked_until' })
   lockedUntil: Date | null;
 
-  @Column({ type: 'timestamptz', nullable: true, name: 'last_login_at' })
+  @Column({ type: 'datetime', precision: 6, nullable: true, name: 'last_login_at' })
   lastLoginAt: Date | null;
 
   @Column({ type: 'varchar', length: 45, nullable: true, name: 'last_login_ip' })
@@ -64,17 +64,17 @@ export class User extends BaseEntity {
   tokenVersion: number;
 
   // --- Password management ---
-  @Column({ type: 'timestamptz', nullable: true, name: 'password_changed_at' })
+  @Column({ type: 'datetime', precision: 6, nullable: true, name: 'password_changed_at' })
   passwordChangedAt: Date | null;
 
-  @Column({ type: 'boolean', default: true, name: 'must_change_password' })
+  @Column({ type: 'tinyint', width: 1, default: 1, name: 'must_change_password' })
   mustChangePassword: boolean;
 
   // --- Privacy policy acceptance ---
   @Column({ type: 'varchar', length: 50, nullable: true, name: 'privacy_policy_version_accepted' })
   privacyPolicyVersionAccepted: string | null;
 
-  @Column({ type: 'timestamptz', nullable: true, name: 'privacy_policy_accepted_at' })
+  @Column({ type: 'datetime', precision: 6, nullable: true, name: 'privacy_policy_accepted_at' })
   privacyPolicyAcceptedAt: Date | null;
 
   // --- Relations ---

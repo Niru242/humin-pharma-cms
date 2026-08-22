@@ -26,7 +26,7 @@ export class RefreshToken {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ type: 'uuid', name: 'user_id' })
+  @Column({ type: 'char', length: 36, name: 'user_id' })
   userId: string;
 
   @Column({ type: 'varchar', length: 255, name: 'token_hash' })
@@ -41,22 +41,22 @@ export class RefreshToken {
   @Column({ type: 'varchar', length: 500, nullable: true, name: 'user_agent' })
   userAgent: string | null;
 
-  @CreateDateColumn({ type: 'timestamptz', name: 'issued_at' })
+  @CreateDateColumn({ type: 'datetime', precision: 6, name: 'issued_at' })
   issuedAt: Date;
 
-  @Column({ type: 'timestamptz', name: 'expires_at' })
+  @Column({ type: 'datetime', precision: 6, name: 'expires_at' })
   expiresAt: Date;
 
-  @Column({ type: 'boolean', default: false, name: 'is_revoked' })
+  @Column({ type: 'tinyint', width: 1, default: 0, name: 'is_revoked' })
   isRevoked: boolean;
 
-  @Column({ type: 'timestamptz', nullable: true, name: 'revoked_at' })
+  @Column({ type: 'datetime', precision: 6, nullable: true, name: 'revoked_at' })
   revokedAt: Date | null;
 
   @Column({ type: 'varchar', length: 100, nullable: true, name: 'revoked_reason' })
   revokedReason: string | null; // 'logout', 'password_change', 'admin_force', 'rotation', 'suspicious_reuse'
 
-  @Column({ type: 'uuid', nullable: true, name: 'replaced_by_id' })
+  @Column({ type: 'char', length: 36, nullable: true, name: 'replaced_by_id' })
   replacedById: string | null; // Points to the new token that replaced this one
 
   // --- Relations ---
