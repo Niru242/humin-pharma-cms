@@ -5,7 +5,6 @@ import {
   Req,
   HttpCode,
   HttpStatus,
-  UseGuards,
 } from '@nestjs/common';
 import { Request } from 'express';
 import { Throttle } from '@nestjs/throttler';
@@ -13,6 +12,7 @@ import { AuthService } from './auth.service';
 import { LoginDto, RefreshDto, ChangePasswordDto } from './dto';
 import { Public } from './decorators/public.decorator';
 import { CurrentUser, RequestUser } from './decorators/current-user.decorator';
+import { RequirePermissions } from './decorators/permissions.decorator';
 
 /**
  * Auth controller — all authentication endpoints.
@@ -90,12 +90,12 @@ export class AuthController {
 
   @Post('force-logout')
   @HttpCode(HttpStatus.OK)
+  @RequirePermissions('user.force_logout')
   async forceLogout(
     @CurrentUser() user: RequestUser,
     @Body('targetUserId') targetUserId: string,
     @Body('reason') reason: string,
   ) {
-    // TODO: Add permission check (user.force_logout) in Substep 4
     return this.authService.forceLogout(targetUserId, reason);
   }
 
