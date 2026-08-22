@@ -43,7 +43,7 @@ export class AuditService {
 
   async log(params: AuditLogParams): Promise<void> {
     try {
-      await this.auditRepo.insert({
+      const event = this.auditRepo.create({
         actorId: params.actorId || null,
         actorEmail: params.actorEmail || null,
         actorIp: params.actorIp || null,
@@ -58,6 +58,7 @@ export class AuditService {
         metadata: params.metadata || null,
         outcome: params.outcome || 'success',
       });
+      await this.auditRepo.save(event);
     } catch (error) {
       console.error('[AUDIT] Failed to write audit event:', error);
     }
@@ -84,7 +85,7 @@ export class AuditService {
 
   async logBatch(events: AuditLogParams[]): Promise<void> {
     try {
-      const entities = events.map((params) => ({
+      const entities = events.map((params) => this.auditRepo.create({
         actorId: params.actorId || null,
         actorEmail: params.actorEmail || null,
         actorIp: params.actorIp || null,
@@ -99,7 +100,7 @@ export class AuditService {
         metadata: params.metadata || null,
         outcome: params.outcome || 'success',
       }));
-      await this.auditRepo.insert(entities);
+      await this.auditRepo.save(entities);
     } catch (error) {
       console.error('[AUDIT] Failed to write batch audit events:', error);
     }
@@ -147,7 +148,7 @@ export class AuditService {
       qb.andWhere('audit.actor_id = :actorId', { actorId: params.actorId });
     }
     if (params.actorEmail) {
-      qb.andWhere('audit.actor_email ILIKE :actorEmail', { actorEmail: `%${params.actorEmail}%` });
+      qb.andWhere('audit.actor_email LIKE :actorEmail', { actorEmail: `%${params.actorEmail}%` });
     }
     if (params.action) {
       qb.andWhere('audit.action = :action', { action: params.action });
@@ -172,7 +173,7 @@ export class AuditService {
     }
     if (params.search) {
       qb.andWhere(
-        '(audit.actor_email ILIKE :search OR audit.entity_type ILIKE :search OR audit.action ILIKE :search OR audit.reason ILIKE :search)',
+        '(audit.actor_email LIKE :search OR audit.entity_type LIKE :search OR audit.action LIKE :search OR audit.reason LIKE :search)',
         { search: `%${params.search}%` },
       );
     }
