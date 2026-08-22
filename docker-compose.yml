@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  # MySQL is provided by your LAMPP stack (localhost:3306)
+  # This docker-compose only runs supporting services
+  # Access MySQL via phpMyAdmin at http://localhost/phpmyadmin
+
+  redis:
+    image: redis:7-alpine
+    container_name: pharma-hrms-redis
+    restart: unless-stopped
+    ports:
+      - '6379:6379'
+    command: redis-server --requirepass pharma_redis_2024
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', '-a', 'pharma_redis_2024', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  minio:
+    image: minio/minio:latest
+    container_name: pharma-hrms-minio
+    restart: unless-stopped
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    environment:
+      MINIO_ROOT_USER: pharma_minio
+      MINIO_ROOT_PASSWORD: pharma_minio_secret_2024
+    volumes:
+      - miniodata:/data
+    command: server /data --console-address ":9001"
+    healthcheck:
+      test: ['CMD', 'mc', 'ready', 'local']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  redisdata:
+  miniodata:
