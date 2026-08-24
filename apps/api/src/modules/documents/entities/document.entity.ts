@@ -48,7 +48,7 @@ export class Document extends BaseEntity {
   @Column({ type: 'varchar', length: 36, nullable: true, name: 'parent_document_id' })
   parentDocumentId: string | null; // Points to previous version
 
-  @Column({ type: 'boolean', default: true, name: 'is_latest' })
+  @Column({ type: 'tinyint', width: 1, default: true, name: 'is_latest' })
   isLatest: boolean;
 
   // --- Ownership / Association ---
@@ -74,10 +74,10 @@ export class Document extends BaseEntity {
   @Column({ type: 'varchar', length: 50, nullable: true, name: 'retention_class' })
   retentionClass: string | null; // 'permanent', '7_years', '3_years', 'until_separation'
 
-  @Column({ type: 'boolean', default: false, name: 'legal_hold' })
+  @Column({ type: 'tinyint', width: 1, default: false, name: 'legal_hold' })
   legalHold: boolean; // Overrides retention — cannot be deleted
 
-  @Column({ type: 'timestamptz', nullable: true, name: 'retention_expires_at' })
+  @Column({ type: 'datetime', precision: 6, nullable: true, name: 'retention_expires_at' })
   retentionExpiresAt: Date | null;
 
   // --- Metadata ---

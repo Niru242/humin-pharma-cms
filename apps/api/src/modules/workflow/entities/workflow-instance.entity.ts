@@ -48,16 +48,16 @@ export class WorkflowInstance extends BaseEntity {
   @Column({ type: 'int', default: 0, name: 'current_step_index' })
   currentStepIndex: number; // Index into the definition's steps array
 
-  @Column({ type: 'timestamptz', nullable: true, name: 'sla_deadline' })
+  @Column({ type: 'datetime', precision: 6, nullable: true, name: 'sla_deadline' })
   slaDeadline: Date | null; // When the current step's SLA expires
 
-  @Column({ type: 'boolean', default: false, name: 'is_escalated' })
+  @Column({ type: 'tinyint', width: 1, default: false, name: 'is_escalated' })
   isEscalated: boolean;
 
-  @Column({ type: 'boolean', default: false, name: 'is_completed' })
+  @Column({ type: 'tinyint', width: 1, default: false, name: 'is_completed' })
   isCompleted: boolean;
 
-  @Column({ type: 'timestamptz', nullable: true, name: 'completed_at' })
+  @Column({ type: 'datetime', precision: 6, nullable: true, name: 'completed_at' })
   completedAt: Date | null;
 
   @Column({ type: 'json', nullable: true })

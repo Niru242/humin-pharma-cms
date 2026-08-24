@@ -58,13 +58,13 @@ export class WorkflowTask extends BaseEntity {
   @Column({ type: 'varchar', length: 255, nullable: true, name: 'acted_by_name' })
   actedByName: string | null;
 
-  @Column({ type: 'timestamptz', nullable: true, name: 'acted_at' })
+  @Column({ type: 'datetime', precision: 6, nullable: true, name: 'acted_at' })
   actedAt: Date | null;
 
-  @Column({ type: 'timestamptz', nullable: true, name: 'sla_deadline' })
+  @Column({ type: 'datetime', precision: 6, nullable: true, name: 'sla_deadline' })
   slaDeadline: Date | null;
 
-  @Column({ type: 'boolean', default: false, name: 'is_overdue' })
+  @Column({ type: 'tinyint', width: 1, default: false, name: 'is_overdue' })
   isOverdue: boolean;
 
   @Column({ type: 'varchar', length: 36, nullable: true, name: 'reassigned_to_id' })

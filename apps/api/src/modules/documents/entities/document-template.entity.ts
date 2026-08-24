@@ -38,6 +38,6 @@ export class DocumentTemplate extends BaseEntity {
   @Column({ type: 'varchar', length: 36, nullable: true, name: 'published_by' })
   publishedBy: string | null;
 
-  @Column({ type: 'timestamptz', nullable: true, name: 'published_at' })
+  @Column({ type: 'datetime', precision: 6, nullable: true, name: 'published_at' })
   publishedAt: Date | null;
 }
