@@ -1,0 +1,99 @@
+.module-tabs-container {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+
+  /* One-time Border Animation */
+  border-bottom: none;
+  background-image: linear-gradient(var(--primary-color), var(--primary-color));
+  background-size: 0% 2px;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  animation: drawBorder 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes drawBorder {
+  to {
+    background-size: 100% 2px;
+  }
+}
+
+/* Remove bottom margin if a table immediately follows the tabs, so they connect like a folder */
+.module-tabs-container:has(+ .table-wrapper) {
+  margin-bottom: 0;
+}
+
+.module-tabs-container::-webkit-scrollbar {
+  display: none;
+  /* Chrome/Safari */
+}
+
+.module-tab {
+  --tab-bg: rgba(0, 0, 0, 0.03);
+  background-color: var(--tab-bg);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-color);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  text-decoration: none;
+  position: relative;
+}
+
+.module-tab:hover {
+  --tab-bg: rgba(0, 0, 0, 0.08);
+  background-color: var(--tab-bg);
+  color: var(--text-color);
+}
+
+.module-tab.active {
+  --tab-bg: var(--primary-color);
+  background-color: var(--tab-bg);
+  color: white;
+  font-weight: 700;
+  box-shadow: none;
+  z-index: 2;
+}
+
+.module-tab::before,
+.module-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.module-tab.active::before,
+.module-tab.active::after {
+  z-index: 2;
+}
+
+.module-tab::before {
+  left: -20px;
+  background: radial-gradient(circle at top left, transparent 19.5px, var(--tab-bg) 20px);
+}
+
+.module-tab::after {
+  right: -20px;
+  background: radial-gradient(circle at top right, transparent 19.5px, var(--tab-bg) 20px);
+}
+
+.tab-indicator {
+  display: none;
+}

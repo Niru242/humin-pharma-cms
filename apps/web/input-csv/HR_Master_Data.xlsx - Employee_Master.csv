@@ -1,0 +1,116 @@
+Pay Code,Employee Name,Department,Designation,Date of Joining,Reporting Manager,Employment Status,Category,Contact Number,Grade
+253,Rajyaguru Harshadbhai Jayantilal,Lab,QA/QC Head,1/10/2021,Falgunbhai,Full Time,Laboratory,#REF!,G1
+169,Rajyaguru Jayeshkumar Jayantilal,Office,Sales Manager,1/9/2017,Falgunbhai,Full Time,Office,#REF!,G2
+277,Patil Ravindra Jeevan,Office,Sales Executive,1/5/2022,Falgunbhai,Full Time,Office,#REF!,G2
+254,Rathvakoli Kamleshbhai Kanchanbhai,Office,Office Clerk,1/10/2021,Falgunbhai,Full Time,Office,#REF!,G2
+355,Aarohi Shailesh Jadhav,Office,Asst.Accountant,1/10/2024,Falgunbhai,Full Time,Office,#REF!,G2
+63,Gohel Sachinbhai Tulshibhai,Office,Logistics ,1/2/2010,GBSavani,Full Time,Office,#REF!,G2
+113,Dave Dineshbhai Bhagvanjibhai,Office,Account Asst.,1/2/2013,Chintanbhai,Full Time,Office,#REF!,G2
+144,Kevadiya Keyur Jerajbhai,Office,H.R.Manager,1/8/2013,Jigneshbhai,Full Time,Office,#REF!,G2
+143,Chauhan Chintanbhai Pratapbhai,Office,C.F.O,1/5/2015,Jigneshbhai,Full Time,Office,#REF!,G2
+132,Bhatt Hiren Bhaskarbhai,Office,Logistics,1/11/2014,GBSavani,Full Time,Office,#REF!,G2
+380,Vaghela Nilesh Budhabhai,Office,Asst.Logistics,1/1/2026,Hirenbhatt,Full Time,Office,#REF!,G2
+199,Joshi Bhumika Gamanbhai,Office,Receptionist,1/9/2019,Keyur Kevadiya,Full Time,Office,#REF!,G2
+181,Trivedi Sanket Bhupendrabhai,Office,C.S,1/9/2018,Jigneshbhai,Full Time,Office,#REF!,G2
+223,Dihora Paresh Chandubhai,Office,Office Clerk,1/11/2020,Keyur Kevadiya,Full Time,Office,#REF!,G2
+290,Patel Dharmik Palkeshbhai,Production,Production Manager,1/9/2022,GBSavani,Full Time,Office,#REF!,G2
+307,Savani Prathambhai Ghanshyambhai,Production,Asst. Production,1/5/2023,GBSavani,Full Time,Office,#REF!,G2
+120,Patel Ashokbhai Bhagvanbhai,Maintenance,Maintenance Manager,1/2/2014,GBSavani,Full Time,Office,#REF!,G2
+361,Jaymin Mukeshbhai Trivedi,Office,Asst.Hr,1/12/2024,Keyur Kevadiya,Full Time,Office,#REF!,G2
+188,Chudasama Shailesh Lakhambhai,Lab,Chemist,1/4/2019,Prathambhai,Full Time,Laboratory,#REF!,G1
+279,Rathod Chirag Balvantbhai,Lab,Chemist,1/5/2022,Prathambhai,Full Time,Laboratory,#REF!,G1
+293,Chudasama Vijay Dhanjibhai,Lab,Chemist,1/11/2022,Prathambhai,Full Time,Laboratory,#REF!,G1
+298,Jejariya Dharmesh Khodubhai,Lab,Chemist,1/12/2022,Prathambhai,Full Time,Laboratory,#REF!,G1
+313,Shilu Harsh Vallabhbhai,Lab,Chemist,1/6/2023,Prathambhai,Full Time,Laboratory,#REF!,G1
+319,Vaghani Khushi Narendrakumar,Lab,Chemist,1/9/2023,Prathambhai,Full Time,Laboratory,#REF!,G1
+339,Bhatti Jay Dilipbhai,Lab,Chemist,1/6/2024,Prathambhai,Full Time,Laboratory,#REF!,G1
+352,Solanki Arvind Sukhabhai,Lab,Chemist,1/9/2024,Prathambhai,Full Time,Laboratory,#REF!,G1
+104,Makwana Jyotiben Arunbhai,Lab,Micro ( Lab ),1/3/2012,Prathambhai,Full Time,Laboratory,#REF!,G1
+353,Rathod Madhvi Mobatbhai,Lab,Micro-biologist,1/10/2024,Prathambhai,Full Time,Laboratory,#REF!,G1
+363,Bhatti Kinjal Hiteshbhai,Lab,Micro-biologist,22/12/2024,Prathambhai,Full Time,Laboratory,#REF!,G1
+100,Solanki Nilesh Chandubhai,Lab,Lab,1/9/2011,Prathambhai,Full Time,Laboratory,#REF!,G1
+213,Panchala kuldeep Vashrambhai,Lab,Lab,7/6/2020,Prathambhai,Full Time,Laboratory,#REF!,G1
+259,Makwana Chirag Vijaybhai,Lab,Lab,1/1/2022,Prathambhai,Full Time,Laboratory,#REF!,G1
+316,Trivedi Ketankumar Kantilal,Lab,IPQC,1/8/2023,Prathambhai,Full Time,Laboratory,#REF!,G1
+326,Dabhi Pradip Karmshibhai,Lab,IPQC,1/12/2023,Prathambhai,Full Time,Laboratory,#REF!,G1
+329,Chauhan Kishan Budhabhai,Lab,IPQC,1/1/2024,Prathambhai,Full Time,Laboratory,#REF!,G1
+338,Joshi Shivam Hiteshbhai,Lab,Lab,1/6/2024,Prathambhai,Full Time,Laboratory,#REF!,G1
+129,Jethwa Rameshbhai Chimanbhai,Maintenance,Maintenance,1/7/2014,GBSavani,Full Time,Maintenance,#REF!,G1
+209,Surjivala Mikhil Ghanshyambhai,Maintenance,Welder,1/11/2019,Bharatbhai,Full Time,Maintenance,#REF!,G1
+229,Baraiya Ramji Nagjibhai,Maintenance,Fitter,1/2/2021,Bharatbhai,Full Time,Maintenance,#REF!,G1
+226,Makvana Nikunj Ashokbhai,Maintenance,Welder,1/1/2021,Bharatbhai,Full Time,Maintenance,#REF!,G1
+257,Makvana Nayan Ranjitbhai,Maintenance,Helper,1/12/2021,Bharatbhai,Full Time,Maintenance,#REF!,G1
+297,Baraiya Prakash Bharatbhai,Production,Melter Operator,1/12/2022,Ashokbhai,Full Time,Supervisor,#REF!,G2
+160,Goswami Bharatbhai Kalupari,Maintenance,Maintenance ,1/11/2016,GBSavani,Full Time,Maintenance,#REF!,G1
+315,Dabasara Jaydeep Dineshbhai,Maintenance,Welder,1/7/2023,Bharatbhai,Full Time,Maintenance,#REF!,G1
+351,Pachani Nitinbhai Ishvarbhai,Maintenance,Fitter,1/9/2024,Bharatbhai,Full Time,Maintenance,#REF!,G1
+362,Pandya Ketankumar Chandulal,Maintenance,Helper,1/12/2024,Bharatbhai,Full Time,Maintenance,#REF!,G1
+368,Kaldariya Manish Bharatbhai ,Maintenance,Fitter,1/3/2025,Bharatbhai,Full Time,Maintenance,#REF!,G1
+377,Dhapa Kalpeshbhai Manjibhai,Maintenance,Helper,1/11/2025,Bharatbhai,Full Time,Maintenance,#REF!,G1
+379,Vaghela Mayurkumar Bhagavanbhai,Maintenance,Fitter,1/1/2026,Bharatbhai,Full Time,Maintenance,#REF!,G1
+112,Solanki Rashikbhai Shantibhai,Maintenance,Electrician,1/1/2013,GBSavani,Full Time,Maintenance,#REF!,G1
+384,Makwana Jitubhai Shankarbhai,Maintenance,Instrument,1/6/2026,Rashikbhai,Full Time,Maintenance,#REF!,G1
+385,Kantariya Jayeshbhai Bhurabhai,Maintenance,Instrument,1/6/2026,Rashikbhai,Full Time,Maintenance,#REF!,G1
+371,Bavaliya Rohit Shankarbhai,Maintenance,Electrician,1/5/2025,Rashikbhai,Full Time,Maintenance,#REF!,G1
+202,Pandya Kaushik Jayantilal,Maintenance,Store,1/9/2019,Rashikbhai,Full Time,Maintenance,#REF!,G1
+299,Aakviya Yogesh Rameshbhai,Maintenance,Store,1/1/2023,Rashikbhai,Full Time,Maintenance,#REF!,G1
+175,Vegad Gopal Ramjibhai,Production,Dispatch,1/7/2018,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+75,Chudasama Bhavesh Kanjibhai,Production,Plant Operator,1/3/2010,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+137,Baraiya Sanjaybhai Panchabhai,Production, Operator,1/11/2014,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+157,Baraiya Naresh Panchabhai,Production,Plant Operator,1/6/2016,Ashokbhai,Full Time,Supervisor,#REF!,G2
+179,Dhila  Jaydip Jivabhai,Production,Filter Operator,1/7/2018,Ashokbhai,Full Time,Supervisor,#REF!,G2
+183,Solanki Sonu Hasmukhabhai,Production,Operator,1/3/2019,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+182,Baraiya Vikram Babubhai,Production,Shift Incharge,1/3/2019,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+228,Joshi Jitendra Ishwarbhai,Production,Plant Operator,1/2/2021,Ashokbhai,Full Time,Supervisor,#REF!,G2
+234,Sarvaiya Rajendrasinh Temubha,Production,Shift Incharge,1/5/2021,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+244,Gohil Anil Dharmshibhai,Production,Operator,1/6/2021,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+245,Sarvaiya Kirtiraj Temubha,Production,Operator,1/7/2021,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+249,Gundigara Parth Jyotindrabhai,Production,Plant Operator,1/8/2021,Ashokbhai,Full Time,Supervisor,#REF!,G2
+251,Hirani Jaydip Dineshbhai,Production,Filter Operator,1/10/2021,Ashokbhai,Full Time,Supervisor,#REF!,G2
+252,Goswami Paraspari Mukeshpari,Production,Plant Operator,1/10/2021,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+270,Dabhi Ishwar Merubhai,Production,Plant Operator,1/3/2022,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+273,Chavda Mitul Pravinbhai,Production,Operator,1/4/2022,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+280,Trivedi Dhaval Maheshbhai,Production,Dispatch,1/5/2022,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+305,Baraiya Parth Rajubhai,Production,Reactor Operator,1/4/2023,Ashokbhai,Full Time,Supervisor,#REF!,G2
+309,Chavda Kush Maheshkumar,Production,Shift Incharge,1/5/2023,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+306,Rathod Vishalkumar Premjibhai,Production,Plant Operator,1/5/2023,Ashokbhai,Full Time,Supervisor,#REF!,G2
+308,Parmar Tejas Vallbhabhai,Production,Filter Operator,1/5/2023,Ashokbhai,Full Time,Supervisor,#REF!,G2
+312,Ramana Upendrakumar Haribhai,Production,Plant Operator,1/5/2023,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+317,Kambad Parth Shirishbhai,Production,Reactor Operator,1/8/2023,Ashokbhai,Full Time,Supervisor,#REF!,G2
+318,Trivedi Pintubhai Pravinbhai,Production,Filter Operator,1/8/2023,Ashokbhai,Full Time,Supervisor,#REF!,G2
+203,Baraiya Sunil Hashmukhbhai,Production,Operator,1/9/2019,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+323,Solanki Swayam Bharatbhai,Production,Operator,1/10/2023,Ashokbhai,Full Time,Supervisor,#REF!,G2
+322,Chetan Shantibhai Makwana,Production,Plant Operator,1/10/2023,Ashokbhai,Full Time,Supervisor,#REF!,G2
+321,Chavada Meet Nitinbhai,Production,Plant Operator,1/10/2023,Ashokbhai,Full Time,Supervisor,#REF!,G2
+332,Goswami Dipakbharti Nagbharthi,Production,Coal Operator,1/1/2024,Ashokbhai,Full Time,Supervisor,#REF!,G2
+330,Rathod Vijaykumar Mukeshbhai,Production,Plant Operator,1/1/2024,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+239,Mer Dharmesh Ramjibhai,Production,ETP Operator,1/5/2021,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+333,Sarvaiya Mayur Sureshbhai,Production,ETP Operator,1/2/2024,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+334,Rathod Ashish Kishorbhai,Production,Filter Operator,1/3/2024,Ashokbhai,Full Time,Supervisor,#REF!,G2
+347,Baraiya Sureshbhai Manshukhbhai,Production,Driver,1/7/2024,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+359,Makwana Maheshkumar Pravinkumar,Production,Filter Operator,1/11/2024,Ashokbhai,Full Time,Supervisor,#REF!,G2
+365,Jethva Jemish Bipinbhai,Production,Operator,1/1/2025,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+369,Jeelgiri Mukeshgiri Goswami,Production,Plant Operator,1/3/2025,Ashokbhai,Full Time,Supervisor,#REF!,G2
+289,Morya Vijay Laxmanbhai,Production,Operator,1/8/2022,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+376,Gohil Niraj Ghanshyambhai,Production,ETP Operator,1/10/2025,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+163,Makwana Jodhabhai Jivanbhai,Office,Driver,1/11/2016,Jigneshbhai,Full Time,Supervisor,#REF!,G2
+374,Pratikbhai Dahyabhai Padhiyar,Office,Driver,1/8/2025,Falgunbhai,Full Time,Supervisor,#REF!,G2
+246,Rana Harubha Satubha,Production,Security Incharge,1/7/2021,Keyur Kevadiya,Full Time,Supervisor,#REF!,G2
+39,Trivedi Kirtikumar Mahashankarbhai,Production,supervisor,6/12/2006,Dharmikbhai,Full Time,Supervisor,#REF!,G2
+18,Sarvaiya Labhuben Jentibhai,Production,worker,1/6/2004,,Full Time,Labour,#REF!,G1
+62,Solanki Kiranben Govindbhai,Production,worker,1/2/2010,,Full Time,Labour,#REF!,G1
+4,Kambad Hansaben Dayabhai,Production,worker,1/2/2010,,Full Time,Labour,#REF!,G1
+64,Baraiya Manjulaben Hasmukhabhai,Production,worker,1/2/2010,,Full Time,Labour,#REF!,G1
+206,Baraiya Shobhanaben Sureshbhai,Office,worker,1/9/2019,,Full Time,Labour,#REF!,G1
+95,Baraiya Vijuben Dayabhai,Production,worker,1/5/2010,,Full Time,Labour,#REF!,G1
+87,Chauhan Devuben kababhai,Production,worker,1/5/2010,,Full Time,Labour,#REF!,G1
+88,Baraiya Fuliben Ranchodbhai,Production,worker,1/5/2010,,Full Time,Labour,#REF!,G1
+92,Vegad Kanuben Budhabhai,Production,worker,1/5/2010,,Full Time,Labour,#REF!,G1
+151,Baraiya Vasantben Dineshbhai,Production,worker,1/10/2015,,Full Time,Labour,#REF!,G1
+35,Parmar Bharatbhai Govindbhai,Production,worker,6/12/2006,,Full Time,Labour,#REF!,G1
+34,Ram Sajivan Sardari,Production,Operator,1/1/2005,Dharmikbhai,Full Time,Labour,#REF!,G1
+158,Makwana Kalpesh Labhabhai,Production,Operator,1/6/2016,Dharmikbhai,Full Time,Labour,#REF!,G1
+168,Sah Rajkumarsah Ramashishsah,Production,Melter Operator,1/12/2016,Ashokbhai,Full Time,Labour,#REF!,G1
+337,Makvana Bhupatbhai Ranabhai,Production,Worker,1/6/2024,,Full Time,Labour,#REF!,G1
+340,Modhekiya Vinubhai Ganeshbhai,Production,Worker,1/6/2024,,Full Time,Labour,#REF!,G1
+341,Solanki Gautambhai Bhimabhai,Production,Worker,1/7/2024,,Full Time,Labour,#REF!,G1

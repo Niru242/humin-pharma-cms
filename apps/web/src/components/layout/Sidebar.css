@@ -1,0 +1,256 @@
+.sidebar {
+  width: 112px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+  background: linear-gradient(180deg, #403CFF 0%, #5260FF 100%);
+  transition: width var(--transition-normal), left var(--transition-normal);
+  overflow: hidden;
+}
+
+.sidebar.closed {
+  width: 96px;
+}
+
+/* 1. Profile Section */
+.profile-section {
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: white;
+  text-align: center;
+  flex-shrink: 0;
+  height: 64px;
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.profile-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  margin-top: 0.5rem;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.profile-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.profile-role {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+}
+
+.sidebar.closed .profile-name,
+.sidebar.closed .profile-role {
+  display: none;
+}
+
+/* 2. Unified Navigation Section */
+.navigation-section {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navigation-section::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 56px;
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: 0;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.nav-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 56px;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-link:hover .nav-icon-wrapper {
+  transform: translateY(-8px);
+}
+
+/* Active Module Dynamic Cutout */
+.nav-link.active {
+  background: var(--bg-main);
+  color: #514BFF;
+  padding: 1rem 0;
+  min-height: 96px;
+  border-radius: 20px 0 0 20px;
+  margin-left: 12px;
+  width: calc(100% - 12px);
+  box-shadow: none;
+  z-index: 2;
+  animation: activeTabEntry 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes activeTabEntry {
+  from {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.nav-link.active:hover {
+  background: var(--bg-main);
+  color: #514BFF;
+}
+
+.nav-link.active .nav-icon-wrapper {
+  transform: none;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+/* Active Icon Wrapper (no animation) */
+.nav-link.active .nav-icon-wrapper svg {
+  filter: drop-shadow(0px 2px 4px rgba(81, 75, 255, 0.1));
+}
+
+/* Inverted curves using box-shadow */
+.nav-link.active::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border-bottom-right-radius: 20px;
+  box-shadow: 10px 10px 0 10px var(--bg-main);
+  pointer-events: none;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border-top-right-radius: 20px;
+  box-shadow: 10px -10px 0 10px var(--bg-main);
+  pointer-events: none;
+}
+
+.active-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #252841;
+  text-align: center;
+  line-height: 1.1;
+  animation: labelFadeIn 0.5s ease-out forwards;
+}
+
+@keyframes labelFadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.active-indicator {
+  display: none;
+  /* Hide the indicator line since the cutout itself is the indicator */
+}
+
+.sidebar.closed .nav-link.active {
+  min-height: 64px;
+  padding: 0;
+}
+
+.sidebar.closed .active-label {
+  display: none;
+}
+
+.sidebar.closed .nav-link.active .nav-icon-wrapper {
+  height: 100%;
+  margin-bottom: 0;
+}
+
+.inactive-label {
+  position: absolute;
+  bottom: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+}
+
+.nav-link:hover .inactive-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    left: -150%;
+    top: 0;
+    height: 100vh;
+    box-shadow: none;
+  }
+
+  .sidebar.open {
+    left: 0;
+    box-shadow: 10px 0 40px rgba(0, 0, 0, 0.2);
+  }
+}
