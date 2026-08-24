@@ -1,0 +1,100 @@
+.ops-attention-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.ops-label-col {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  padding-right: 1rem;
+  border-right: 1px solid var(--border-color);
+}
+
+.ops-dot-wrapper {
+  padding-top: 2px;
+}
+
+.ops-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.ops-dot.error {
+  background: var(--error);
+}
+
+.ops-dot.success {
+  background: var(--success);
+}
+
+.ops-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ops-title {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.ops-review-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--brand-500);
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: inherit;
+  text-transform: uppercase;
+  text-align: left;
+  line-height: 1;
+}
+
+.ops-items-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  overflow: hidden;
+}
+
+.ops-item-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 4px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.ops-item-count {
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+
+.ops-item-label {
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--text-main);
+}
+
+.ops-quick-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}

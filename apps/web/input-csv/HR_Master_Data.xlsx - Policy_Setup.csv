@@ -1,0 +1,18 @@
+Policy Name,Value,Remarks
+Excellent Attendance Minimum,95,
+Good Attendance Minimum,85,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+Punch Compliance Coaching Threshold,2,Two employee-caused missed punches in one calendar month trigger coaching.
+Incentives Enabled,No,Keep No until the incentive policy is formally approved.
+Increment Policy Enabled,No,Keep No until the increment policy is formally approved.
+New Joiner Increment Eligibility,Pending Policy,Six-month new-joiner idea is recorded only; eligibility is not automated.
+Transfer / Part-Time Increment Rules,Unchanged Pending Policy,No transfer or part-time increment rule is changed or automated.
+New Joiner Minimum Tenure Months,6,Employees below this tenure at the cycle end month are Not Eligible this cycle.
+Increment Minimum Scored Months,4,Minimum months with a Total Score before a band is proposed; fewer shows Insufficient Data.
+Increment Review Cycles,Apr-Sep reviewed 1-15 Oct; Oct-Mar reviewed 1-15 Apr,The two semi-annual review cycles.
