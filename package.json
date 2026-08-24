@@ -2,26 +2,19 @@
   "name": "pharma-hrms",
   "version": "0.1.0",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
-    "dev:api": "npm run dev --workspace=apps/api",
-    "build:api": "npm run build --workspace=apps/api",
-    "start:api": "npm run start:prod --workspace=apps/api",
-    "dev:shared": "npm run build --workspace=packages/shared",
-    "docker:up": "docker compose up -d",
-    "docker:down": "docker compose down",
-    "docker:reset": "docker compose down -v && docker compose up -d",
-    "seed": "npm run seed --workspace=apps/api",
-    "migrate": "npm run migration:run --workspace=apps/api",
-    "migrate:generate": "npm run migration:generate --workspace=apps/api"
+    "dev:api": "cd apps/api && npx nest start --watch",
+    "build:api": "cd apps/api && npx nest build",
+    "start:api": "cd apps/api && node dist/main.js",
+    "seed": "cd apps/api && npx ts-node -r tsconfig-paths/register src/database/seeds/run-seed.ts",
+    "dev:web": "cd apps/web && npx next dev",
+    "build:web": "cd apps/web && npx next build",
+    "dev": "cd apps/api && node dist/main.js",
+    "install:api": "cd apps/api && npm install --legacy-peer-deps",
+    "install:web": "cd apps/web && npm install --legacy-peer-deps",
+    "install:all": "npm run install:api && npm run install:web"
   },
   "engines": {
     "node": ">=20.0.0"
-  },
-  "devDependencies": {
-    "@nestjs/cli": "^11.0.24"
   }
 }

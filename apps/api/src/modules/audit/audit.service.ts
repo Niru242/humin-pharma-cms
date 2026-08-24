@@ -198,7 +198,7 @@ export class AuditService {
     }
 
     if (params.actorEmail) {
-      qb.andWhere('audit.actor_email ILIKE :actorEmail', {
+      qb.andWhere('audit.actor_email LIKE :actorEmail', {
         actorEmail: `%${params.actorEmail}%`,
       });
     }
@@ -233,7 +233,7 @@ export class AuditService {
 
     if (params.search) {
       qb.andWhere(
-        '(audit.actor_email ILIKE :search OR audit.entity_type ILIKE :search OR audit.action ILIKE :search OR audit.reason ILIKE :search)',
+        '(audit.actor_email LIKE :search OR audit.entity_type LIKE :search OR audit.action LIKE :search OR audit.reason LIKE :search)',
         { search: `%${params.search}%` },
       );
     }

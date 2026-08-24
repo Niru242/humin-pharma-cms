@@ -4,20 +4,21 @@ import * as path from 'path';
 import * as dotenv from 'dotenv';
 import { seedRolesAndPermissions } from './seed-roles-permissions';
 import { seedAdminUser } from './seed-admin-user';
+import { seedWorkflowDefinitions } from './seed-workflow-definitions';
 
-dotenv.config({ path: path.resolve(__dirname, '../../../../.env') });
 dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 async function runSeed() {
   const dataSource = new DataSource({
-    type: 'postgres',
-    host: process.env.DB_HOST || 'localhost',
-    port: parseInt(process.env.DB_PORT || '5432', 10),
-    username: process.env.DB_USERNAME || 'pharma_admin',
-    password: process.env.DB_PASSWORD || 'pharma_secret_2024',
-    database: process.env.DB_NAME || 'pharma_hrms',
+    type: 'mysql',
+    host: process.env.DB_HOST || '127.0.0.1',
+    port: parseInt(process.env.DB_PORT || '3306', 10),
+    username: process.env.DB_USERNAME || 'root',
+    password: process.env.DB_PASSWORD || '',
+    database: process.env.DB_DATABASE || 'pharma_hrms',
     entities: [path.resolve(__dirname, '../../**/*.entity{.ts,.js}')],
     synchronize: false,
+    charset: 'utf8mb4',
   });
 
   await dataSource.initialize();
@@ -26,6 +27,7 @@ async function runSeed() {
   try {
     await seedRolesAndPermissions(dataSource);
     await seedAdminUser(dataSource);
+    await seedWorkflowDefinitions(dataSource);
     console.log('[Seed] All seeds completed successfully');
   } catch (error) {
     console.error('[Seed] Error:', error);

@@ -3,6 +3,7 @@ import "./globals.css";
 import { AdminLayout } from "@/components/layout/AdminLayout";
 import QueryProvider from "@/providers/QueryProvider";
 import { ToastProvider } from "@/providers/ToastProvider";
+import { AuthProvider } from "@/providers/AuthProvider";
 
 export const metadata: Metadata = {
   title: "Pharma HRMS - Enterprise Platform",
@@ -26,13 +27,13 @@ export default function RootLayout({
       </head>
       <body>
         <QueryProvider>
-          <ToastProvider>
-            <AdminLayout>{children}</AdminLayout>
-          </ToastProvider>
+          <AuthProvider>
+            <ToastProvider>
+              <AdminLayout>{children}</AdminLayout>
+            </ToastProvider>
+          </AuthProvider>
         </QueryProvider>
       </body>
     </html>
   );
 }
-
-

@@ -6,7 +6,7 @@ import { RequestUser } from '../auth/decorators/current-user.decorator';
  * Global Search Service — searches across records the user has permission to see.
  * Section 10 item 9: "Respect data scope/field scope in results."
  *
- * Uses raw SQL with ILIKE for simplicity. Can be replaced with
+ * Uses raw SQL with LIKE for simplicity. Can be replaced with
  * Elasticsearch/pg_trgm for production performance at scale.
  */
 

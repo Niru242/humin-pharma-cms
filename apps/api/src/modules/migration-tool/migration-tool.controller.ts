@@ -13,7 +13,7 @@ export class MigrationToolController {
   @RequirePermissions('system.import.manage')
   @UseInterceptors(FileInterceptor('file'))
   async dryRun(
-    @UploadedFile() file: Express.Multer.File,
+    @UploadedFile() file: any,
     @CurrentUser() user: RequestUser,
   ) {
     const content = file.buffer.toString('utf-8');

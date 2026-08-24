@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, Global } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { APP_GUARD } from '@nestjs/core';
 import { ThrottlerGuard } from '@nestjs/throttler';
@@ -35,6 +35,7 @@ import { AccessLogInterceptor } from './interceptors/access-log.interceptor';
  * @Public() skips all three guards.
  * Routes without @RequirePermissions() still require authentication.
  */
+@Global()
 @Module({
   imports: [
     TypeOrmModule.forFeature([

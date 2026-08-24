@@ -29,7 +29,7 @@ export class Document extends BaseEntity {
   @Column({ type: 'varchar', length: 20 })
   extension: string; // File extension (validated against allowlist)
 
-  @Column({ type: 'bigint', name: 'file_size' })
+  @Column({ type: 'int', name: 'file_size' })
   fileSize: number; // Size in bytes
 
   @Column({ type: 'varchar', length: 64 })

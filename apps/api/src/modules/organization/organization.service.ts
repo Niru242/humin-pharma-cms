@@ -52,7 +52,7 @@ export class OrganizationService {
       .leftJoinAndSelect('d.plant', 'plant')
       .where('d.is_active = true');
     if (plantId) qb.andWhere('d.plant_id = :plantId', { plantId });
-    if (search) qb.andWhere('(d.name ILIKE :s OR d.code ILIKE :s)', { s: `%${search}%` });
+    if (search) qb.andWhere('(d.name LIKE :s OR d.code LIKE :s)', { s: `%${search}%` });
     qb.orderBy('d.name', 'ASC');
     return qb.getMany();
   }
@@ -115,7 +115,7 @@ export class OrganizationService {
     this.dataScopeService.applyScope(qb, user, 'employee');
 
     if (filters?.search) {
-      qb.andWhere('(employee.first_name ILIKE :s OR employee.last_name ILIKE :s OR employee.employee_code ILIKE :s OR employee.email ILIKE :s)', { s: `%${filters.search}%` });
+      qb.andWhere('(employee.first_name LIKE :s OR employee.last_name LIKE :s OR employee.employee_code LIKE :s OR employee.email LIKE :s)', { s: `%${filters.search}%` });
     }
     if (filters?.departmentId) qb.andWhere('employee.department_id = :did', { did: filters.departmentId });
     if (filters?.status) qb.andWhere('employee.employment_status = :status', { status: filters.status });

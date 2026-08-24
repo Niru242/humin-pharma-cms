@@ -13,7 +13,7 @@ export class DocumentsController {
   @RequirePermissions('document.upload')
   @UseInterceptors(FileInterceptor('file', { limits: { fileSize: 25 * 1024 * 1024 } }))
   async upload(
-    @UploadedFile() file: Express.Multer.File,
+    @UploadedFile() file: any,
     @CurrentUser() user: RequestUser,
     @Body('entityType') entityType?: string,
     @Body('entityId') entityId?: string,
@@ -31,7 +31,7 @@ export class DocumentsController {
   @Post(':id/version')
   @RequirePermissions('document.upload')
   @UseInterceptors(FileInterceptor('file', { limits: { fileSize: 25 * 1024 * 1024 } }))
-  async uploadVersion(@Param('id') id: string, @UploadedFile() file: Express.Multer.File, @CurrentUser() user: RequestUser) {
+  async uploadVersion(@Param('id') id: string, @UploadedFile() file: any, @CurrentUser() user: RequestUser) {
     if (!file) return { error: 'No file provided' };
     return this.documentsService.uploadVersion(id, { originalName: file.originalname, mimeType: file.mimetype, size: file.size, buffer: file.buffer }, user);
   }
