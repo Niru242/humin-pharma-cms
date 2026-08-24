@@ -63,7 +63,7 @@ export class AuditService {
    */
   async log(params: AuditLogParams): Promise<void> {
     try {
-      await this.auditRepo.insert({
+      const event = this.auditRepo.create({
         actorId: params.actorId || null,
         actorEmail: params.actorEmail || null,
         actorIp: params.actorIp || null,
@@ -77,7 +77,8 @@ export class AuditService {
         reason: params.reason || null,
         metadata: params.metadata || null,
         outcome: params.outcome || 'success',
-      });
+      } as any);
+      await this.auditRepo.save(event);
     } catch (error) {
       // Audit logging MUST NOT crash the application.
       // Log to stderr for operational alerting, but don't throw.
@@ -128,7 +129,7 @@ export class AuditService {
         metadata: params.metadata || null,
         outcome: params.outcome || 'success',
       }));
-      await this.auditRepo.insert(entities);
+      await this.auditRepo.save(entities as any);
     } catch (error) {
       console.error('[AUDIT] Failed to write batch audit events:', error);
     }
