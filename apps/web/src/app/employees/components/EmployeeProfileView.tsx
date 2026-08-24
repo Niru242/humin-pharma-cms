@@ -1,0 +1,359 @@
+'use client';
+
+import { useState } from 'react';
+import { IconBriefcase, IconBuilding, IconDownload, IconFileCertificate, IconMail, IconPencil, IconPhone } from '@tabler/icons-react';
+import Link from 'next/link';
+import { SetPageHeader } from '@/components/ui/SetPageHeader';
+import '@/components/ui/ModuleTabs.css';
+
+interface EmployeeProfileViewProps {
+  employeeId?: string | string[];
+}
+
+export default function EmployeeProfileView({ employeeId }: EmployeeProfileViewProps) {
+  const [activeTab, setActiveTab] = useState('Overview');
+  const tabs = ['Overview', 'Employment', 'Attendance', 'Leave Ledger', 'Performance', 'Financials', 'Disciplinary', 'Documents', 'Audit History'];
+
+  // In a real app, you would fetch employee data based on employeeId
+  const displayId = Array.isArray(employeeId) ? employeeId[0] : employeeId || 'EMP-001';
+
+  return (
+    <div className="page-container" style={{ background: 'var(--background-color)', display: 'flex', flexDirection: 'row', gap: '2rem', alignItems: 'flex-start' }}>
+      
+
+
+      {/* Sidebar Panel: 360 Profile Card */}
+      <div style={{ flex: '0 0 340px', background: 'var(--surface-color)', padding: '2.5rem 2rem', borderRadius: '16px', border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: '1.5rem', position: 'sticky', top: '2rem', boxShadow: 'var(--shadow-sm)' }}>
+        
+        <div style={{ width: '120px', height: '120px', borderRadius: '50%', background: 'linear-gradient(135deg, var(--brand-500), var(--brand-700))', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '3rem', fontWeight: 'bold', boxShadow: '0 8px 16px rgba(59, 130, 246, 0.25)', border: '4px solid white' }}>
+          RS
+        </div>
+        
+        <div style={{ width: '100%' }}>
+          <h2 style={{ margin: '0 0 0.5rem 0', fontSize: '1.5rem', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>Rahul Sharma</h2>
+          <div className="text-muted" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', fontWeight: 500, marginBottom: '1rem' }}>
+            <IconBriefcase size={18} /> Senior Engineer
+          </div>
+          <span className="badge badge-success" style={{ padding: '0.4rem 1rem', fontSize: '0.75rem', borderRadius: '9999px' }}>Active • {displayId}</span>
+        </div>
+
+        <div style={{ width: '100%', height: '1px', background: 'var(--border-color)', margin: '0.5rem 0' }}></div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', width: '100%', textAlign: 'left', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+             <div style={{ background: 'var(--brand-50)', padding: '8px', borderRadius: '8px', color: 'var(--brand-600)' }}><IconBuilding size={18} /></div>
+             <div><div style={{ fontWeight: 600, color: 'var(--text-main)' }}>Engineering</div><div style={{ fontSize: '0.8rem' }}>Mumbai Plant</div></div>
+           </div>
+           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+             <div style={{ background: 'var(--brand-50)', padding: '8px', borderRadius: '8px', color: 'var(--brand-600)' }}><IconMail size={18} /></div>
+             <div style={{ fontWeight: 500, color: 'var(--text-main)' }}>rahul.s@company.com</div>
+           </div>
+           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+             <div style={{ background: 'var(--brand-50)', padding: '8px', borderRadius: '8px', color: 'var(--brand-600)' }}><IconPhone size={18} /></div>
+             <div style={{ fontWeight: 500, color: 'var(--text-main)' }}>+91 98765 43210</div>
+           </div>
+        </div>
+
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '1rem' }}>
+          <button className="btn btn-secondary" style={{ width: '100%', justifyContent: 'center', borderRadius: '8px' }}><IconDownload size={18} /> Download Dossier</button>
+          <Link href="/employees/lifecycle" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', borderRadius: '8px' }}><IconPencil size={18} /> Initiate Change</Link>
+        </div>
+      </div>
+
+      {/* Main Panel: Tabs & Content (Right Side) */}
+      <div style={{ flex: '1', minWidth: 0, display: 'flex', flexDirection: 'column' }}>
+        {/* Tabs */}
+        <div className="module-tabs-container" style={{ marginBottom: 0 }}>
+        {tabs.map(tab => (
+          <button 
+            key={tab}
+            onClick={() => setActiveTab(tab)}
+            className={`module-tab ${activeTab === tab ? 'active' : ''}`}
+          >
+            {tab}
+            {activeTab === tab && <span className="tab-indicator"></span>}
+          </button>
+        ))}
+      </div>
+
+      {/* Tab Content Area */}
+      <div style={{ background: 'var(--surface-color)', padding: '2rem', borderRadius: '0 12px 12px 12px', border: '1px solid var(--primary-color)', borderTop: 'none', minHeight: '400px' }}>
+        
+        {activeTab === 'Overview' && (
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+            <div>
+              <h3 style={{ margin: '0 0 1.5rem 0', color: 'var(--text-color)' }}>Personal Information</h3>
+              <div style={{ display: 'grid', gridTemplateColumns: '150px 1fr', gap: '1rem', color: 'var(--text-color)' }}>
+                <div className="text-muted">Date of Birth</div><div className="font-medium">15 Aug 1990</div>
+                <div className="text-muted">Gender</div><div className="font-medium">Male</div>
+                <div className="text-muted">Blood Group</div><div className="font-medium">O+</div>
+                <div className="text-muted">Marital Status</div><div className="font-medium">Married</div>
+                <div className="text-muted">Emergency Contact</div><div className="font-medium">Priya Sharma (+91 91234 56789)</div>
+              </div>
+            </div>
+            <div>
+              <h3 style={{ margin: '0 0 1.5rem 0', color: 'var(--text-color)' }}>Reporting Structure</h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', background: 'rgba(0,0,0,0.02)', borderRadius: '8px' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--secondary-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>SM</div>
+                  <div>
+                    <div className="text-sm text-muted">Manager</div>
+                    <div className="font-medium">Suresh Menon</div>
+                  </div>
+                </div>
+                <div style={{ width: '2px', height: '20px', background: 'var(--border-color)', margin: '0 0 0 20px' }}></div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', border: '1px solid var(--primary-color)', borderRadius: '8px' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--primary-color)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>RS</div>
+                  <div>
+                    <div className="font-medium">Rahul Sharma (Self)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'Employment' && (
+          <div>
+            <h3 style={{ margin: '0 0 1.5rem 0', color: 'var(--text-color)' }}>Current Position Details</h3>
+            <div style={{ display: 'grid', gridTemplateColumns: '150px 1fr 150px 1fr', gap: '1.5rem 1rem', color: 'var(--text-color)', marginBottom: '3rem' }}>
+              <div className="text-muted">Date of Joining</div><div className="font-medium">01 Jan 2024</div>
+              <div className="text-muted">Probation Status</div><div><span className="badge badge-success">Confirmed</span></div>
+              <div className="text-muted">Worker Category</div><div className="font-medium">White Collar</div>
+              <div className="text-muted">Employment Type</div><div className="font-medium">Full-Time Permanent</div>
+              <div className="text-muted">Grade</div><div className="font-medium">L2 - Middle Management</div>
+              <div className="text-muted">Notice Period</div><div className="font-medium">60 Days</div>
+            </div>
+
+            <h3 style={{ margin: '0 0 1.5rem 0', color: 'var(--text-color)' }}>Statutory Details</h3>
+            <div style={{ display: 'grid', gridTemplateColumns: '150px 1fr 150px 1fr', gap: '1.5rem 1rem', color: 'var(--text-color)' }}>
+              <div className="text-muted">PAN Number</div><div className="font-medium">ABCDE1234F</div>
+              <div className="text-muted">Aadhaar</div><div className="font-medium">1234 5678 9012</div>
+              <div className="text-muted">UAN (PF)</div><div className="font-medium">100987654321</div>
+              <div className="text-muted">ESIC IP</div><div className="font-medium">N/A</div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'Attendance' && (
+          <div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <h3 style={{ margin: 0, color: 'var(--text-color)' }}>Attendance Summary (Current Month)</h3>
+              <Link href="/time/register" className="btn btn-secondary btn-sm">View Detailed Muster</Link>
+            </div>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem', marginBottom: '2rem' }}>
+              <div style={{ padding: '1rem', border: '1px solid var(--border-color)', borderRadius: '8px', textAlign: 'center' }}>
+                <div className="text-2xl font-bold text-success">18</div>
+                <div className="text-sm text-muted">Days Present</div>
+              </div>
+              <div style={{ padding: '1rem', border: '1px solid var(--border-color)', borderRadius: '8px', textAlign: 'center' }}>
+                <div className="text-2xl font-bold text-warning">2</div>
+                <div className="text-sm text-muted">Late Arrivals</div>
+              </div>
+              <div style={{ padding: '1rem', border: '1px solid var(--border-color)', borderRadius: '8px', textAlign: 'center' }}>
+                <div className="text-2xl font-bold text-primary">4.5</div>
+                <div className="text-sm text-muted">OT Hours</div>
+              </div>
+              <div style={{ padding: '1rem', border: '1px solid var(--border-color)', borderRadius: '8px', textAlign: 'center' }}>
+                <div className="text-2xl font-bold text-danger">0</div>
+                <div className="text-sm text-muted">Missing Punches</div>
+              </div>
+            </div>
+
+            <h4 style={{ margin: '0 0 1rem 0' }}>Current Shift Configuration</h4>
+            <div style={{ padding: '1rem', background: 'rgba(0,0,0,0.02)', borderRadius: '8px' }}>
+              <strong>General Shift (09:00 - 18:00)</strong>
+              <div className="text-sm text-muted mt-1">Grace Period: 15 mins • OT Eligible: Yes</div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'Leave Ledger' && (
+          <div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <h3 style={{ margin: 0, color: 'var(--text-color)' }}>Leave Balances</h3>
+              <Link href="/leave/adjustments" className="btn btn-secondary btn-sm">Adjust Balance</Link>
+            </div>
+            <table className="data-grid">
+              <thead>
+                <tr>
+                  <th>Leave Type</th>
+                  <th>Opening</th>
+                  <th>Accrued</th>
+                  <th>Consumed</th>
+                  <th>Closing Balance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="font-medium">Privilege Leave (PL)</td>
+                  <td>10.0</td>
+                  <td>2.5</td>
+                  <td>0.0</td>
+                  <td className="font-bold text-primary">12.5</td>
+                </tr>
+                <tr>
+                  <td className="font-medium">Sick Leave (SL)</td>
+                  <td>6.0</td>
+                  <td>0.0</td>
+                  <td>0.0</td>
+                  <td className="font-bold text-primary">6.0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        {activeTab === 'Performance' && (
+          <div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <h3 style={{ margin: 0, color: 'var(--text-color)' }}>Performance History</h3>
+            </div>
+            <table className="data-grid">
+              <thead>
+                <tr>
+                  <th>Review Period</th>
+                  <th>HOD Score</th>
+                  <th>Status</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Q2 2026</td>
+                  <td className="font-bold text-success">4.5 / 5.0</td>
+                  <td><span className="badge badge-success">Finalized</span></td>
+                  <td>Excellent work on the recent project deployment.</td>
+                </tr>
+                <tr>
+                  <td>Q1 2026</td>
+                  <td className="font-bold">4.2 / 5.0</td>
+                  <td><span className="badge badge-success">Finalized</span></td>
+                  <td>Good team collaboration.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        {activeTab === 'Financials' && (
+          <div>
+            <h3 style={{ margin: '0 0 1.5rem 0', color: 'var(--text-color)' }}>Salary Increments</h3>
+            <table className="data-grid" style={{ marginBottom: '2rem' }}>
+              <thead>
+                <tr>
+                  <th>Effective Date</th>
+                  <th>Previous Salary</th>
+                  <th>Increment</th>
+                  <th>New Salary</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>01 Jan 2026</td>
+                  <td>₹ 8,50,000</td>
+                  <td className="text-success">+ ₹ 75,000 (8.8%)</td>
+                  <td className="font-bold">₹ 9,25,000</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h3 style={{ margin: '0 0 1.5rem 0', color: 'var(--text-color)' }}>Active Loans & Advances</h3>
+            <table className="data-grid">
+              <thead>
+                <tr>
+                  <th>Loan Type</th>
+                  <th>Amount</th>
+                  <th>Balance</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Personal Advance</td>
+                  <td>₹ 50,000</td>
+                  <td>₹ 20,000</td>
+                  <td><span className="badge badge-warning">Active</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        {activeTab === 'Disciplinary' && (
+          <div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <h3 style={{ margin: 0, color: 'var(--text-color)' }}>Disciplinary Records</h3>
+              <button className="btn btn-primary btn-sm">Log Incident</button>
+            </div>
+            <table className="data-grid">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Incident Type</th>
+                  <th>Severity</th>
+                  <th>Status / Action Taken</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colSpan={4} className="empty-state">No disciplinary records found. Employee has a clean record.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        {activeTab === 'Documents' && (
+          <div>
+            <h3 style={{ margin: '0 0 1.5rem 0', color: 'var(--text-color)' }}>Employee Documents</h3>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
+              <div style={{ padding: '1.5rem', border: '1px solid var(--border-color)', borderRadius: '8px', textAlign: 'center' }}>
+                <IconFileCertificate size={32} className="text-primary" />
+                <div className="font-medium">Aadhaar Card.pdf</div>
+                <div className="text-xs text-muted mt-1">Uploaded: 01 Jan 2024</div>
+                <button className="btn btn-secondary btn-sm" style={{ marginTop: '1rem' }}>Download</button>
+              </div>
+              <div style={{ padding: '1.5rem', border: '1px solid var(--border-color)', borderRadius: '8px', textAlign: 'center' }}>
+                <IconFileCertificate size={32} className="text-primary" />
+                <div className="font-medium">PAN Card.pdf</div>
+                <div className="text-xs text-muted mt-1">Uploaded: 01 Jan 2024</div>
+                <button className="btn btn-secondary btn-sm" style={{ marginTop: '1rem' }}>Download</button>
+              </div>
+              <div style={{ padding: '1.5rem', border: '1px solid var(--border-color)', borderRadius: '8px', textAlign: 'center' }}>
+                <IconFileCertificate size={32} className="text-muted" />
+                <div className="font-medium">Degree Certificate</div>
+                <div className="text-xs text-danger mt-1">Missing</div>
+                <button className="btn btn-primary btn-sm" style={{ marginTop: '1rem' }}>Upload Now</button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'Audit History' && (
+          <div>
+            <h3 style={{ margin: '0 0 1.5rem 0', color: 'var(--text-color)' }}>Recent Changes (Audit)</h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <div style={{ display: 'flex', gap: '1.5rem', paddingBottom: '1rem', borderBottom: '1px solid var(--border-color)' }}>
+                <div className="text-muted text-sm" style={{ width: '150px' }}>20 Jul 2026, 10:45 AM</div>
+                <div>
+                  <div className="font-medium">Grade Changed</div>
+                  <div className="text-sm">L1 &rarr; L2 by Super Admin</div>
+                </div>
+              </div>
+              <div style={{ display: 'flex', gap: '1.5rem', paddingBottom: '1rem', borderBottom: '1px solid var(--border-color)' }}>
+                <div className="text-muted text-sm" style={{ width: '150px' }}>01 Jan 2024, 09:00 AM</div>
+                <div>
+                  <div className="font-medium">Employee Onboarded</div>
+                  <div className="text-sm">Record created by HR Admin</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+    </div>
+  );
+}

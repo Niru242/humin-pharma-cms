@@ -1,0 +1,54 @@
+.global-filters {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.modern-select,
+.modern-date {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.modern-select:hover,
+.modern-date:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb, 79, 70, 229), 0.1);
+}
+
+.modern-select:focus,
+.modern-date:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb, 79, 70, 229), 0.2);
+}
+
+/* Custom chevron for select */
+.select-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.select-wrapper::after {
+  content: '▼';
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  position: absolute;
+  right: 1rem;
+  pointer-events: none;
+}
+
+.modern-select {
+  padding-right: 2.5rem;
+}
