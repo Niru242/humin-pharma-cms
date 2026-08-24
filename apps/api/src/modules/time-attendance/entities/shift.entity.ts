@@ -22,7 +22,7 @@ export class Shift extends BaseEntity {
   @Column({ type: 'int', default: 30, name: 'break_minutes' })
   breakMinutes: number;
 
-  @Column({ type: 'boolean', default: false, name: 'is_night_shift' })
+  @Column({ type: 'tinyint', width: 1, default: false, name: 'is_night_shift' })
   isNightShift: boolean;
 
   @Column({ type: 'int', default: 15, name: 'grace_in_minutes' })

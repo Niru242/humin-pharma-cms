@@ -37,10 +37,10 @@ export class Delegation extends BaseEntity {
   @Column({ type: 'varchar', length: 255, nullable: true, name: 'delegatee_name' })
   delegateeName: string | null;
 
-  @Column({ type: 'timestamptz', name: 'effective_from' })
+  @Column({ type: 'datetime', precision: 6, name: 'effective_from' })
   effectiveFrom: Date;
 
-  @Column({ type: 'timestamptz', name: 'effective_to' })
+  @Column({ type: 'datetime', precision: 6, name: 'effective_to' })
   effectiveTo: Date;
 
   @Column({ type: 'text', nullable: true })
@@ -54,10 +54,10 @@ export class Delegation extends BaseEntity {
   @Column({ type: 'json', nullable: true, name: 'workflow_codes' })
   workflowCodes: string[] | null; // null = all workflows
 
-  @Column({ type: 'boolean', default: false, name: 'is_revoked' })
+  @Column({ type: 'tinyint', width: 1, default: false, name: 'is_revoked' })
   isRevoked: boolean;
 
-  @Column({ type: 'timestamptz', nullable: true, name: 'revoked_at' })
+  @Column({ type: 'datetime', precision: 6, nullable: true, name: 'revoked_at' })
   revokedAt: Date | null;
 
   @Column({ type: 'varchar', length: 36, nullable: true, name: 'revoked_by' })

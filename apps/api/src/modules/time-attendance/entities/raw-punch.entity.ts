@@ -11,13 +11,13 @@ export class RawPunch {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @CreateDateColumn({ type: 'timestamptz', name: 'created_at' })
+  @CreateDateColumn({ type: 'datetime', precision: 6, name: 'created_at' })
   createdAt: Date;
 
   @Column({ type: 'varchar', length: 50, name: 'employee_code' })
   employeeCode: string;
 
-  @Column({ type: 'timestamptz', name: 'punch_time' })
+  @Column({ type: 'datetime', precision: 6, name: 'punch_time' })
   punchTime: Date;
 
   @Column({ type: 'varchar', length: 10, name: 'punch_type' })

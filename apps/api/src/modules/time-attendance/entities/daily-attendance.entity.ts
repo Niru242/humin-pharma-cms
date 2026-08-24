@@ -18,10 +18,10 @@ export class DailyAttendance extends BaseEntity {
   @Column({ type: 'varchar', length: 36, nullable: true, name: 'shift_id' })
   shiftId: string | null;
 
-  @Column({ type: 'timestamptz', nullable: true, name: 'first_in' })
+  @Column({ type: 'datetime', precision: 6, nullable: true, name: 'first_in' })
   firstIn: Date | null;
 
-  @Column({ type: 'timestamptz', nullable: true, name: 'last_out' })
+  @Column({ type: 'datetime', precision: 6, nullable: true, name: 'last_out' })
   lastOut: Date | null;
 
   @Column({ type: 'int', default: 0, name: 'total_working_minutes' })
@@ -45,10 +45,10 @@ export class DailyAttendance extends BaseEntity {
   @Column({ type: 'int', default: 0, name: 'punch_count' })
   punchCount: number;
 
-  @Column({ type: 'boolean', default: false, name: 'is_regularized' })
+  @Column({ type: 'tinyint', width: 1, default: false, name: 'is_regularized' })
   isRegularized: boolean;
 
-  @Column({ type: 'boolean', default: false, name: 'has_exception' })
+  @Column({ type: 'tinyint', width: 1, default: false, name: 'has_exception' })
   hasException: boolean;
 
   @Column({ type: 'varchar', length: 200, nullable: true, name: 'exception_reason' })
@@ -60,7 +60,7 @@ export class DailyAttendance extends BaseEntity {
   @Column({ type: 'int', name: 'period_year' })
   periodYear: number;
 
-  @Column({ type: 'boolean', default: false, name: 'is_locked' })
+  @Column({ type: 'tinyint', width: 1, default: false, name: 'is_locked' })
   isLocked: boolean;
 
   @Column({ type: 'varchar', length: 36, nullable: true, name: 'plant_id' })

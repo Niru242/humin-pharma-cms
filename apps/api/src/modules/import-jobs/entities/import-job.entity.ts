@@ -48,10 +48,10 @@ export class ImportJob extends BaseEntity {
   @Column({ type: 'json', nullable: true })
   summary: Record<string, unknown> | null;
 
-  @Column({ type: 'timestamptz', nullable: true, name: 'started_at' })
+  @Column({ type: 'datetime', precision: 6, nullable: true, name: 'started_at' })
   startedAt: Date | null;
 
-  @Column({ type: 'timestamptz', nullable: true, name: 'completed_at' })
+  @Column({ type: 'datetime', precision: 6, nullable: true, name: 'completed_at' })
   completedAt: Date | null;
 
   @Column({ type: 'text', nullable: true, name: 'error_message' })

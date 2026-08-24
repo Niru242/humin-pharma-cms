@@ -35,16 +35,16 @@ export class Notification extends BaseEntity {
   @Column({ type: 'varchar', length: 255, nullable: true, name: 'action_url' })
   actionUrl: string | null; // Deep link to the relevant page
 
-  @Column({ type: 'boolean', default: false, name: 'is_read' })
+  @Column({ type: 'tinyint', width: 1, default: false, name: 'is_read' })
   isRead: boolean;
 
-  @Column({ type: 'timestamptz', nullable: true, name: 'read_at' })
+  @Column({ type: 'datetime', precision: 6, nullable: true, name: 'read_at' })
   readAt: Date | null;
 
   @Column({ type: 'varchar', length: 20, default: 'pending', name: 'delivery_status' })
   deliveryStatus: string; // 'pending', 'sent', 'delivered', 'failed'
 
-  @Column({ type: 'timestamptz', nullable: true, name: 'sent_at' })
+  @Column({ type: 'datetime', precision: 6, nullable: true, name: 'sent_at' })
   sentAt: Date | null;
 
   @Column({ type: 'text', nullable: true, name: 'failure_reason' })
