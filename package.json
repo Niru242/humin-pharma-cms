@@ -2,19 +2,29 @@
   "name": "pharma-hrms",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev:api": "cd apps/api && npx nest start --watch",
-    "build:api": "cd apps/api && npx nest build",
-    "start:api": "cd apps/api && node dist/main.js",
-    "seed": "cd apps/api && npx ts-node -r tsconfig-paths/register src/database/seeds/run-seed.ts",
-    "dev:web": "cd apps/web && npx next dev",
-    "build:web": "cd apps/web && npx next build",
-    "dev": "cd apps/api && node dist/main.js",
-    "install:api": "cd apps/api && npm install --legacy-peer-deps",
-    "install:web": "cd apps/web && npm install --legacy-peer-deps",
-    "install:all": "npm run install:api && npm run install:web"
+    "dev:backend": "npm run dev --workspace=apps/backend",
+    "dev:frontend": "npm run dev --workspace=apps/frontend",
+    "build:backend": "npm run build --workspace=apps/backend",
+    "build:frontend": "npm run build --workspace=apps/frontend",
+    "start:backend": "npm run start:prod --workspace=apps/backend",
+    "dev:shared": "npm run build --workspace=packages/shared",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:reset": "docker compose down -v && docker compose up -d",
+    "seed": "npm run seed --workspace=apps/backend",
+    "migrate": "npm run migration:run --workspace=apps/backend",
+    "migrate:generate": "npm run migration:generate --workspace=apps/backend"
   },
   "engines": {
     "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.24",
+    "@types/multer": "^2.2.0"
   }
 }
