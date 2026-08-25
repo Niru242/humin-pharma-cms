@@ -7,21 +7,24 @@
     "packages/*"
   ],
   "scripts": {
-    "dev:api": "npm run dev --workspace=apps/api",
-    "build:api": "npm run build --workspace=apps/api",
-    "start:api": "npm run start:prod --workspace=apps/api",
+    "dev:backend": "npm run dev --workspace=apps/backend",
+    "dev:frontend": "npm run dev --workspace=apps/frontend",
+    "build:backend": "npm run build --workspace=apps/backend",
+    "build:frontend": "npm run build --workspace=apps/frontend",
+    "start:backend": "npm run start:prod --workspace=apps/backend",
     "dev:shared": "npm run build --workspace=packages/shared",
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down",
     "docker:reset": "docker compose down -v && docker compose up -d",
-    "seed": "npm run seed --workspace=apps/api",
-    "migrate": "npm run migration:run --workspace=apps/api",
-    "migrate:generate": "npm run migration:generate --workspace=apps/api"
+    "seed": "npm run seed --workspace=apps/backend",
+    "migrate": "npm run migration:run --workspace=apps/backend",
+    "migrate:generate": "npm run migration:generate --workspace=apps/backend"
   },
   "engines": {
     "node": ">=20.0.0"
   },
   "devDependencies": {
-    "@nestjs/cli": "^11.0.24"
+    "@nestjs/cli": "^11.0.24",
+    "@types/multer": "^2.2.0"
   }
 }
